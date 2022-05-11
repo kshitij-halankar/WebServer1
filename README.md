@@ -1,2 +1,4 @@
 # WebServer1
-Tomcat, Java Servlet and RESTEasy
+Java Servlet and RESTEasy
+Tomcat
+Maven
