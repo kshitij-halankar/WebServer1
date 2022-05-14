@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!--    <context-param>
+        <param-name>resteasy.servlet.mapping.prefix</param-name>
+        <param-value>/api</param-value>
+    </context-param>-->
+    
+    <!--    <listener>
+        
+    </listener>-->
+    
+    <servlet>
+        <servlet-name>EmployeeREST</servlet-name>
+        <servlet-class>ws.restservlet.EmployeeServlet</servlet-class>
+        <!--        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>ws.restservlet.EmployeeApplication</param-value>
+        </init-param>-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeREST</servlet-name>
+        <url-pattern>/EmployeeREST/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ResteasyServlet</servlet-name>
+        <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>ws.restservlet.EmployeeApplication</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResteasyServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+    
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>
